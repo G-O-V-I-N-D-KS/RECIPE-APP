@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Add New Recipe</h2>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form method="POST" action="{{ url_for('add_recipe') }}">
+        <h4 class="mb-3">Recipe Name</h4>
+        <div class="form-floating mb-3">
+          <input type="text" name="name" class="form-control" id="floatingName" placeholder="Recipe Name" required>
+          <label for="floatingName">Recipe Name</label>
+        </div>
+        <h4 class="mb-3">Ingredients</h4>
+        <div class="form-floating mb-3">
+          <textarea name="ingredients" class="form-control" id="floatingIngredients" placeholder="Ingredients (comma-separated)" style="height: 100px" required></textarea>
+          <label for="floatingIngredients">Ingredients (comma-separated)</label>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Add Recipe</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
+

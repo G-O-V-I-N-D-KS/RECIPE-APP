@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Recipe Finder</h1>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form method="POST" action="{{ url_for('index') }}">
+        <div class="form-floating mb-3">
+          <input type="text" name="ingredients" class="form-control" id="floatingInput" 
+           placeholder="Enter ingredients (comma-separated)" required>
+          <label for="floatingInput">Enter ingredients (comma-separated)</label>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Find Recipes</button>
+      </form>
+    </div>
+  </div>
+
+  {% if recipes %}
+  <div class="row mt-5">
+    <h2 class="text-center mb-4">Recipes You Can Make:</h2>
+    {% for recipe in recipes %}
+    <div class="col-md-4 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title text-dark">{{ recipe.name }}</h5>
+          <p class="card-text text-dark">Ingredients: {{ recipe.ingredients }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
+
